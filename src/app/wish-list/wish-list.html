@@ -1,10 +1,5 @@
 <div class="row row-cols-2 mb-3">
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" [(ngModel)]="newWishText" />
-    <button class="btn btn-secondary" type="button" (click)="addNewWish()">
-      New Wish
-    </button>
-  </div>
+  <add-new-wish [wishes]="wishes" />
 </div>
 <div class="row row-cols-2">
   <wish-list-filter [(filter)]="filter"></wish-list-filter>
