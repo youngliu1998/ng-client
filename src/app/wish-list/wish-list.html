@@ -2,19 +2,7 @@
   <add-new-wish [wishes]="wishes" />
 </div>
 <div class="row row-cols-2">
-  <wish-list-filter [(filter)]="filter"></wish-list-filter>
-  <ul class="w-50">
-    @for (wish of wishes.filter(filter); track $index) {
-    <li class="d-flex justify-content-between">
-      <input
-        type="checkbox"
-        class="check-box"
-        [checked]="wish.isCompleted"
-        (click)="toggleFullfill(wish)"
-      />
-      {{ wish.wishText }}
-      <button class="btn-close"></button>
-    </li>
-    }
-  </ul>
+  <wish-list-filter [(filter)]="filter" />
+  <list-box [wishes]="wishes.filter(filter)"/>
+  
 </div>
