@@ -1,0 +1,37 @@
+<div class="row row-cols-2 mb-3">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="newWishText" />
+    <button class="btn btn-secondary" type="button" (click)="addNewWish()">
+      New Wish
+    </button>
+  </div>
+</div>
+<div class="row row-cols-2">
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">select</label>
+    <select
+      name=""
+      class="form-select"
+      [(ngModel)]="filterOption"
+      (ngModelChange)="updateFilter()"
+    >
+      <option value="0">All</option>
+      <option value="1">unfinished</option>
+      <option value="2">finished</option>
+    </select>
+  </div>
+  <ul class="w-50">
+    @for (item of itemsSelected; track $index) {
+    <li class="d-flex justify-content-between">
+      <input
+        type="checkbox"
+        class="check-box"
+        [checked]="item.isCompleted"
+        (click)="toggleFullfill(item)"
+      />
+      {{ item.wishText }}
+      <button class="btn-close"></button>
+    </li>
+    }
+  </ul>
+</div>
