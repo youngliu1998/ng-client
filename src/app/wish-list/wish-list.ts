@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { WishItem } from '../../share/module/wish-item';
+import { WishListFilter } from './wish-list-filter/wish-list-filter';
 
 @Component({
   selector: 'app-wish-list',
-  imports: [FormsModule],
+  imports: [FormsModule, WishListFilter],
   templateUrl: './wish-list.html',
   styleUrl: './wish-list.css',
 })
 export class WishList {
-  items = [
+  wishes = [
     new WishItem('Master angular'),
-    new WishItem('Master nestJS', true),
+    new WishItem('Master nestJS'),
     new WishItem('Find work qq'),
   ];
   toggleFullfill(item: WishItem) {
@@ -19,26 +20,9 @@ export class WishList {
   }
   newWishText: string = '';
   addNewWish() {
-    this.items.push({ wishText: this.newWishText, isCompleted: false });
+    this.wishes.push({ wishText: this.newWishText, isCompleted: false });
   }
-  // filters = [
-  //   (item: WishItem) => item,
-  //   (item: WishItem) => !item.isCompleted,
-  //   (item: WishItem) => item.isCompleted,
-  // ];
-  itemsSelected: WishItem[] = this.items;
-  filterOption: string = '0';
-  updateFilter() {
-    switch (this.filterOption) {
-      case '0':
-        this.itemsSelected = this.items;
-        break;
-      case '1':
-        this.itemsSelected = this.items.filter((item) => !item.isCompleted);
-        break;
-      case '2':
-        this.itemsSelected = this.items.filter((item) => item.isCompleted);
-        break;
-    }
-  }
+
+  wishesSelected: WishItem[] = this.wishes;
+  filter: any;
 }

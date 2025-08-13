@@ -7,29 +7,17 @@
   </div>
 </div>
 <div class="row row-cols-2">
-  <div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">select</label>
-    <select
-      name=""
-      class="form-select"
-      [(ngModel)]="filterOption"
-      (ngModelChange)="updateFilter()"
-    >
-      <option value="0">All</option>
-      <option value="1">unfinished</option>
-      <option value="2">finished</option>
-    </select>
-  </div>
+  <wish-list-filter [(filter)]="filter"></wish-list-filter>
   <ul class="w-50">
-    @for (item of itemsSelected; track $index) {
+    @for (wish of wishes.filter(filter); track $index) {
     <li class="d-flex justify-content-between">
       <input
         type="checkbox"
         class="check-box"
-        [checked]="item.isCompleted"
-        (click)="toggleFullfill(item)"
+        [checked]="wish.isCompleted"
+        (click)="toggleFullfill(wish)"
       />
-      {{ item.wishText }}
+      {{ wish.wishText }}
       <button class="btn-close"></button>
     </li>
     }

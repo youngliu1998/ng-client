@@ -1,1 +1,13 @@
-<p>wish-list-filter works!</p>
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">select</label>
+  <select
+    name=""
+    class="form-select"
+    [(ngModel)]="filterOption"
+    (ngModelChange)="updateFilter($event)"
+  >
+    <option value="0">All</option>
+    <option value="1">unfinished</option>
+    <option value="2">finished</option>
+  </select>
+</div>
