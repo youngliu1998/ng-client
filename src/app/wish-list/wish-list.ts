@@ -4,6 +4,7 @@ import { WishItem } from '../../share/module/wish-item';
 import { WishListFilter } from './wish-list-filter/wish-list-filter';
 import { AddNewWish } from './add-new-wish/add-new-wish';
 import { ListBox } from './list-box/list-box';
+import { EventService } from '../../share/services/event-service';
 
 @Component({
   selector: 'app-wish-list',
@@ -17,5 +18,11 @@ export class WishList {
     new WishItem('Master nestJS'),
     new WishItem('Find work qq'),
   ];
+  constructor(events: EventService) {
+    events.listen('removeWish', (wish: any) => {
+      const wishIndex = this.wishes.indexOf(wish);
+      this.wishes.splice(wishIndex, 1);
+    });
+  }
   filter: any;
 }

@@ -1,0 +1,10 @@
+<li class="d-flex justify-content-between">
+  <input
+    type="checkbox"
+    class="check-box"
+    [checked]="wish.isCompleted"
+    (click)="toggleFullfill(wish)"
+  />
+  {{ wish.wishText }}
+  <button class="btn-close" (click)="removeWish(wish)"></button>
+</li>

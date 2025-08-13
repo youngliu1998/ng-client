@@ -1,14 +1,5 @@
 <ul class="w-50">
-    @for (wish of wishes; track $index) {
-    <li class="d-flex justify-content-between">
-      <input
-        type="checkbox"
-        class="check-box"
-        [checked]="wish.isCompleted"
-        (click)="toggleFullfill(wish)"
-      />
-      {{ wish.wishText }}
-      <button class="btn-close"></button>
-    </li>
-    }
-  </ul>
+  @for (wish of wishes; track $index) {
+  <wish-list-item [wish]="wish" />
+  }
+</ul>
