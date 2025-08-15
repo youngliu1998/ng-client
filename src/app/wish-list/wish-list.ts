@@ -10,7 +10,7 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-wish-list',
-  imports: [ AsyncPipe, WishListFilter, AddNewWish, ListBox],
+  imports: [AsyncPipe, WishListFilter, AddNewWish, ListBox],
   templateUrl: './wish-list.html',
   styleUrl: './wish-list.css',
 })
@@ -23,9 +23,10 @@ export class WishList implements OnInit {
   wishes$!: Observable<WishItem[]>;
   isLoading = true;
   constructor(events: EventService, private wishService: WishService) {
-    events.listen('removeWish', (wish: any) => {
-      const wishIndex = this.wishes.indexOf(wish);
-      this.wishes.splice(wishIndex, 1);
+    events.listen('getWishes', () => {
+      console.log('emit getWishes');
+      this.wishes$ = this.wishService.getWishes();
+      console.log(this.wishes$);
     });
   }
   ngOnInit(): void {
