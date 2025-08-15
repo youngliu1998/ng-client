@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { WishItem } from '../../../share/module/wish-item';
+import { WishItem } from '../../share/module/wish-item';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +18,9 @@ export class WishService {
       // 使用 map 運算子，將 Observable<ApiResponse> 轉換為 Observable<WishItem[]>
       map((response: any) => response.data)
     );
+  }
+  createWishes(wishText: string): Observable<any> {
+    // 發送請求，並指定回傳格式為 ApiResponse
+    return this.http.post(this.apiUrl, { wishText });
   }
 }

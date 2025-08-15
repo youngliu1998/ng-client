@@ -1,13 +1,32 @@
-<main class="container">
-  <form action="">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="text" name="email" class="form-control" />
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">password</label>
-      <input type="text" name="password" class="form-control" />
-    </div>
-    <button class="btn btn-primary">登入</button>
+<div class="login-body __login-bg">
+  <div class="login-panel">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form [formGroup]="loginFrom" class="form-login">
+    <a href="/" class="back-link-login __font-link">Back</a>
+    <h3>Login Here</h3>
+
+    <label for="username" class="label-login">Username</label>
+    <input
+      type="text"
+      formControlName="Email"
+      placeholder="Email"
+      class="input-login"
+    />
+
+    <label for="password" class="label-login">Password</label>
+    <input
+      type="password"
+      formControlName="Password"
+      placeholder="Password"
+      class="input-login"
+    />
+
+    <button class="btn-login" (click)="onLogin()">Log In</button>
+    <!-- <div class="social">
+      <div class="go"><i class="fab fa-google"></i> Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div> -->
   </form>
-</main>
+</div>

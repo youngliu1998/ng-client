@@ -1,5 +1,7 @@
 <div class="row row-cols-2 mb-3">
+  @if (wishes$ | async; as wishes) {
   <add-new-wish [wishes]="wishes" />
+  }
 </div>
 <div class="row row-cols-2">
   <wish-list-filter [(filter)]="filter" />
@@ -9,5 +11,3 @@
   <list-box [wishes]="wishes.filter(filter)" />
   } @else { no wishes now }
 </div>
-<button class="btn btn-success" (click)="getWish()">get list</button>
-<!-- <div class="container">@for (wish of test; track $index) { {{ wish }} }</div> -->

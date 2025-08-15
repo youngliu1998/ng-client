@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { WishItem } from '../../../share/module/wish-item';
+import { WishService } from '../wish.service';
 
 @Component({
   selector: 'add-new-wish',
@@ -10,10 +11,11 @@ import { WishItem } from '../../../share/module/wish-item';
 })
 export class AddNewWish {
   @Input() wishes: WishItem[] = [];
+  constructor(private wishService: WishService) {}
   newWishText: string = '';
 
   addNewWish() {
-    this.wishes.push({ wishText: this.newWishText, isCompleted: false });
+    this.wishService.createWishes(this.newWishText);
     this.newWishText = '';
   }
 }
