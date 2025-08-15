@@ -3,14 +3,14 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form [formGroup]="loginFrom" class="form-login">
+  <form [formGroup]="loginForm" class="form-login">
     <a href="/" class="back-link-login __font-link">Back</a>
     <h3>Login Here</h3>
 
     <label for="username" class="label-login">Username</label>
     <input
       type="text"
-      formControlName="Email"
+      formControlName="email"
       placeholder="Email"
       class="input-login"
     />
@@ -18,8 +18,8 @@
     <label for="password" class="label-login">Password</label>
     <input
       type="password"
-      formControlName="Password"
-      placeholder="Password"
+      formControlName="password"
+      placeholder="password"
       class="input-login"
     />
 

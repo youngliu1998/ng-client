@@ -1,13 +1,9 @@
+@if (wishes$ | async; as wishes){
 <div class="row row-cols-2 mb-3">
-  @if (wishes$ | async; as wishes) {
   <add-new-wish [wishes]="wishes" />
-  }
 </div>
 <div class="row row-cols-2">
   <wish-list-filter [(filter)]="filter" />
-  @if (wishes$ | async; as wishes) {
   <list-box [wishes]="wishes.filter(filter)" />
-  } @else if(wishes.length > 0){
-  <list-box [wishes]="wishes.filter(filter)" />
-  } @else { no wishes now }
 </div>
+} @else { I HATE COOKIE AND CHROME WHEN I TEST IN LOCAL }

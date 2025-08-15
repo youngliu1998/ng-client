@@ -31,8 +31,5 @@ export class WishList implements OnInit {
   ngOnInit(): void {
     this.wishes$ = this.wishService.getWishes();
   }
-  getWish() {
-    console.log(this.wishes$);
-  }
   filter: any;
 }

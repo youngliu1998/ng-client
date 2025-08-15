@@ -5,8 +5,9 @@ import { NotFound } from './not-found/not-found';
 import { Auth } from './auth/auth';
 
 export const routes: Routes = [
+  { path: '', component: Auth },
   {
-    path: '',
+    path: 'dashboard',
     component: Layout,
     title: 'Wish List Test',
     children: [{ path: '', component: WishList }],

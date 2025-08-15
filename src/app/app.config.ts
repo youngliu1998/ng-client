@@ -11,7 +11,7 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-import { snakeCaseToCamelCaseInterceptor } from '../interceptor/snake-case-to-camel-case-interceptor';
+import { snakeCaseToCamelCaseInterceptor } from './_interceptor/snake-case-to-camel-case-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
