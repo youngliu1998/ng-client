@@ -16,9 +16,8 @@ export class AddNewWish {
   newWishText: string = '';
 
   addNewWish() {
-    console.log(this.newWishText);
-    const newWsih = this.wishService.createWish(this.newWishText);
+    // console.log('add new Wish:', this.newWishText);
+    this.wishService.createWish(this.newWishText);
     this.newWishText = '';
-    console.log(newWsih);
   }
 }
