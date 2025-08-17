@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { WishItem } from '../../../share/module/wish-item';
-import { WishService } from '../wish.service';
+import { WishService } from '../../../share/services/wish.service';
 import { EventService } from '../../../share/services/event-service';
 
 @Component({

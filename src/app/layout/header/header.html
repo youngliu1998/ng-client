@@ -1,5 +1,18 @@
 <header class="header __header-background">
   <div class="container d-flex justify-content-end">
-    <a href="/auth" type="button" class="btn btn-primary"> Log Out </a>
+    @if (isAuth) {
+    <div class="d-flex justify-content-center align-items-center gap-3 px-3">
+      <div>{{ user.name }}</div>
+      <div>{{ user.email }}</div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="logout()">
+      Log Out
+    </button>
+    } @else { you are an robber! ...okok, please login first
+    <a href="/auth" type="button" class="btn btn-primary"> Login here</a>}
+    <!-- <button class="btn btn-warning" (click)="check()">check</button> -->
+    <!-- <button type="button" class="btn btn-primary" (click)="logout()">
+      Log Out
+    </button> -->
   </div>
 </header>

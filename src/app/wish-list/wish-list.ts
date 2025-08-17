@@ -3,9 +3,8 @@ import { WishItem } from '../../share/module/wish-item';
 import { WishListFilter } from './wish-list-filter/wish-list-filter';
 import { AddNewWish } from './add-new-wish/add-new-wish';
 import { ListBox } from './list-box/list-box';
-import { EventService } from '../../share/services/event-service';
 import { Observable } from 'rxjs';
-import { WishService } from './wish.service';
+import { WishService } from '../../share/services/wish.service';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

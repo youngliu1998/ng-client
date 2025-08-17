@@ -1,4 +1,8 @@
+@if (isAuth$ | async; as isAuth) { @if(user$ | async; as user){
+<app-header [user]="user" [isAuth]="isAuth" />} }@else{
 <app-header />
+}
 <main class="main-layout container">
+  <!-- <button class="btn btn-primary" (click)="checkIsAuth()">Check isAuth</button> -->
   <router-outlet />
 </main>
