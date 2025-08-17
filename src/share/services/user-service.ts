@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, config, of } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { User } from '../module/user';
 import { Router } from '@angular/router';
+import { LoginForm } from '../module/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,7 @@ export class userService {
       .subscribe();
   }
 
-  login(formLogin: any): void {
+  login(formLogin: LoginForm): void {
     const loginUrl = this.authUrl + '/login';
     this.http
       .post(loginUrl, formLogin, { withCredentials: true })

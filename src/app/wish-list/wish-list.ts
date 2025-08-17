@@ -13,7 +13,7 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './wish-list.html',
   styleUrl: './wish-list.css',
 })
-export class WishList implements OnInit, OnChanges {
+export class WishList implements OnInit {
   wishes$!: Observable<WishItem[]>;
   constructor(private wishService: WishService) {
     this.wishes$ = this.wishService.wishes$;
@@ -22,6 +22,6 @@ export class WishList implements OnInit, OnChanges {
   ngOnInit(): void {
     this.wishService.loadWishes();
   }
-  ngOnChanges(changes: SimpleChanges): void {}
-  filter: any;
+
+  filter = (item: WishItem) => item.isCompleted;
 }

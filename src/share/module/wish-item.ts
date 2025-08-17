@@ -1,3 +1,7 @@
 export class WishItem {
-  constructor(public wishText: string, public isCompleted: boolean = false) {}
+  id: number = 0;
+  wishText: string = '';
+  isCompleted: boolean = false;
+  userId: number = 0
 }
+

@@ -11,11 +11,10 @@ import { WishService } from '../../../../share/services/wish.service';
 export class WishListItem {
   @Input() wish!: WishItem;
   constructor(private wishService: WishService, private events: EventService) {}
-  toggleFullfill(wish: any) {
+  toggleFullfill(wish: WishItem) {
     this.wishService.updateWishStatus(wish.id);
   }
-  async removeWish(wish: any) {
-    console.log('wish: ', wish);
+  async removeWish(wish: WishItem) {
     const { id } = wish;
     this.wishService.deleteWish(id);
   }

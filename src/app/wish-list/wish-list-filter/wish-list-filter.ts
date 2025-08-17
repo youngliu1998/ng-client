@@ -10,18 +10,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class WishListFilter implements OnInit {
   filters = [
-    (item: WishItem) => item,
+    (item: WishItem) => true,
     (item: WishItem) => !item.isCompleted,
     (item: WishItem) => item.isCompleted,
   ];
-  @Input() filter: any;
-  @Output() filterChange = new EventEmitter<void>();
+  @Input() filter = (item: WishItem): boolean => item.isCompleted;
+  @Output() filterChange = new EventEmitter<any>();
   constructor() {}
   ngOnInit(): void {
-    this.updateFilter('0');
+    this.updateFilter(0);
   }
-  filterOption: string = '0';
-  updateFilter(value: any) {
+  filterOption: number = 0;
+  updateFilter(value: number) {
     this.filter = this.filters[value];
     return this.filterChange.emit(this.filter);
   }
