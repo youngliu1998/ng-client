@@ -5,14 +5,14 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { userService } from '../../share/services/user-service';
+import { UserService } from '../../share/services/user-service';
 import { map, tap } from 'rxjs';
 
 export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  const authService = inject(userService);
+  const authService = inject(UserService);
   const routeNavigation = inject(Router);
   return authService.isAuth$.pipe(
     tap((isAuth) => {
@@ -27,7 +27,7 @@ export const authGuard: CanActivateFn = (
 };
 
 export const publicGuard: CanActivateFn = (route, state) => {
-  const authService = inject(userService);
+  const authService = inject(UserService);
   const router = inject(Router);
 
   // Directly subscribe to the isAuth$ Observable from the userService

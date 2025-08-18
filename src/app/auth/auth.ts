@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { userService } from '../../share/services/user-service';
+import { UserService } from '../../share/services/user-service';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +10,8 @@ import { userService } from '../../share/services/user-service';
   styleUrl: './auth.css',
 })
 export class Auth {
-  constructor(private userService: userService, private router: Router) {}
+  private userService = inject(UserService);
+  // constructor(private userService: userService, private router: Router) {}
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('aimer@mail.com'),
     password: new FormControl('12345'),

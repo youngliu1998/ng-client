@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { WishItem } from '../../share/module/wish-item';
+import { wishewApi } from '../module/wish-api';
 
 @Injectable({
   providedIn: 'root',
@@ -20,9 +21,10 @@ export class WishService {
       .pipe(
         tap((res: any) => {
           console.log('()=>{getWishes tap}');
-          return this.wishSubject.next(res.data);
+          const data = res.data
+          return this.wishSubject.next(data);
         }),
-        map((res: any) => res.data) // 使用 map 運算子，將 Observable<ApiResponse> 轉換為 Observable<WishItem[]>
+        map((res: wishewApi) => res.data) // 使用 map 運算子，將 Observable<ApiResponse> 轉換為 Observable<WishItem[]>
       )
       .subscribe();
   }

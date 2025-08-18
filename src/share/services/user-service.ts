@@ -9,7 +9,7 @@ import { LoginForm } from '../module/auth';
 @Injectable({
   providedIn: 'root',
 })
-export class userService {
+export class UserService {
   private apiUrl = 'http://localhost:3005/user'; // 你的 API 端點
   private authUrl = 'http://localhost:3005/auth';
 

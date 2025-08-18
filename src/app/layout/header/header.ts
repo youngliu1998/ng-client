@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { userService } from '../../../share/services/user-service';
+import { UserService } from '../../../share/services/user-service';
 import { User } from '../../../share/module/user';
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { User } from '../../../share/module/user';
 export class Header {
   @Input() user!: User;
   @Input() isAuth!: boolean;
-  constructor(private userService: userService) {}
+  constructor(private userService: UserService) {}
   logout(): void {
     this.userService.logout();
   }
